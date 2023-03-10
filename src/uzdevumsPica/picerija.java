@@ -1,7 +1,7 @@
 package uzdevumsPica;
 import javax.swing.JOptionPane;
 
-public class picerija {
+public class Picerija {
 
 	public static void main(String[] args) {
 		String[] darbibas = {"Pievienot pasîtîjumu", "Apskatît pasûtîjumus", "Apturçt programmu"};
