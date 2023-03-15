@@ -102,13 +102,12 @@ public class Picerija {
 						JOptionPane.showMessageDialog(null, "Informâcija par "+(i+1)+". klientu:"
 								+ "\nVârds: "+klientuMasivs[i].getVards()
 								+ "\nTâlrunis: "+klientuMasivs[i].getTalrunis()
-								+ "\nAdrese: "+klientuMasivs[i].getAdrese());
+								+ "\nAdrese: "+klientuMasivs[i].getAdrese()
+								+ "\nIzmçrs: "+picuMasivs[i].getIzmers()
+								+ "\nPiedevas: "+picuMasivs[i].getPiedevas()
+								+ "\nMçrces: "+picuMasivs[i].getMerces());
 						
-			
-								JOptionPane.showMessageDialog(null, "Informâcija par "+(i+1)+". klienta picu:"
-										+ "\nIzmçrs: "+picuMasivs[i].getIzmers()
-										+"\nPiedevas: "+picuMasivs[i].getPiedevas()
-										+ "\nMçrces: "+picuMasivs[i].getMerces());
+										
 					}
 				}
 				
