@@ -5,12 +5,12 @@ public class Pica {
 	String[] piedevas;
 	String[] merces;
 	double cena;
+	int piedevuSk, mercuSk;
 	
-	public Pica(String izmers, String[] piedevas, String[] merces, double cena){
+	public Pica(String izmers, int piedevuSk, String[] piedevas, int mercuSk, String[] merces){
 		this.izmers=izmers;
 		this.piedevas=piedevas;
 		this.merces=merces;
-		this.cena=cena;
 		
 	}
 	
@@ -25,5 +25,13 @@ public class Pica {
 	}
 	public double getCena(){
 		return cena;
+	}
+	
+	public int getPiedevuSk(){
+		return piedevuSk;
+	}
+	
+	public double getMercuSk(){
+		return mercuSk;
 	}
 }

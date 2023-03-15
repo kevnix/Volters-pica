@@ -9,6 +9,8 @@ public class Picerija {
 		String[] darbibas = {"Pievienot pasûtîjumu", "Apskatît pasûtîjumus", "Apturçt programmu"};
 		String izvele;
 		int masivaL;
+		Klients[] klientuMasivs = null;
+		Pica[] picuMasivs = null;
 		
 		do{
 			izvele = (String)JOptionPane.showInputDialog(null, "Izvçlies darbîbu", "Izvçle", JOptionPane.QUESTION_MESSAGE, null, darbibas, darbibas[0]);
@@ -18,13 +20,14 @@ public class Picerija {
 				String vards, adrese, talrunis, izmers;
 				String[] izmeruIzvele = {"S", "M", "L", "XL"}, 
 						piedevuIzvele = {"Siers", "Bekons", "Ðíiòíis", "Vistas fileja", "Maltâ gaïa", "Sarkanie sîpoli", "Ðampinjoni", "Tomâti", "Paprika", "Kukurûza", "Ananâsi", "Olîvas"},
-						mercuIzvele = {"BBQ", "Íiploku", "Marinara", "Ranèo", "Saldâ èili"};
+						mercuIzvele = {"BBQ", "Íiploku", "Marinara", "Ranèo", "Saldâ èili"},
+						piegade = {"Jâ", "Nç"};
 				
 				do{
 					masivaL = Integer.parseInt(JOptionPane.showInputDialog("Cik klientus pievienosi?"));
 				}while(masivaL<1);
 				
-				Klients[] klientuMasivs = new Klients[masivaL];
+				klientuMasivs = new Klients[masivaL];
 				for(int i=0; i<klientuMasivs.length; i++){
 					adrese = JOptionPane.showInputDialog("Kâda ir "+(i+1)+". klienta adrese?");
 					talrunis = JOptionPane.showInputDialog("Kâds ir "+(i+1)+". klienta tâlruòa nr?");
@@ -35,34 +38,18 @@ public class Picerija {
 				
 				JOptionPane.showMessageDialog(null, "Klienti reìistrçti! Tagad pierakstam viòu pasûtîjumus!", "Informâcija", JOptionPane.INFORMATION_MESSAGE);
 				
-				Pica[] picuMasivs = new Pica[masivaL];
+				picuMasivs = new Pica[masivaL];
 				Double cena = null;
 				for(int i=0; i<picuMasivs.length; i++){
 					izmers = (String)JOptionPane.showInputDialog(null, "Izvçlies izmçru", (i+1)+". pica", JOptionPane.QUESTION_MESSAGE, null, izmeruIzvele, izmeruIzvele[0]);
 					
-					//cena pçc izmçra
-					switch (izmers){
-					case "S":
-						cena = 4.99;
-						break;
-					case "M":
-						cena = 9.99;
-						break;
-					case "L":
-						cena = 14.99;
-						break;
-					case "XL":
-						cena = 20.00;
-						break;
-					}
 					
 					int piedevuSk;
 					do{
 						piedevuSk = Integer.parseInt(JOptionPane.showInputDialog(null, "Cik piedevas?", (i+1)+". pica", JOptionPane.QUESTION_MESSAGE));
 					}while(piedevuSk<0 || piedevuSk>5);
 					
-					//cena pçc piedevu skaitu
-					cena = cena + piedevuSk*1.65;
+					
 					
 					String[] piedevas = new String[piedevuSk];
 					for(int j=0; j<piedevuSk; j++){
@@ -74,21 +61,36 @@ public class Picerija {
 						mercuSk = Integer.parseInt(JOptionPane.showInputDialog(null, "Cik mçrces?", (i+1)+". pica", JOptionPane.QUESTION_MESSAGE));
 					}while(mercuSk<0 || mercuSk>5);
 					
-					//cena pçc mçrèu skaita
-					cena = cena + mercuSk*0.90;
+					
 					
 					String[] merces = new String[mercuSk];
 					for(int j=0; j<mercuSk; j++){
 						merces[j] = (String)JOptionPane.showInputDialog(null, "Izvçlies "+(j+1)+". mçrci", (i+1)+". pica", JOptionPane.QUESTION_MESSAGE, null, mercuIzvele, mercuIzvele[0]);
 					}
 					
-					picuMasivs[i] = new Pica(izmers, piedevas, merces, cena);
+					picuMasivs[i] = new Pica(izmers, piedevuSk, piedevas, mercuSk, merces);
 					JOptionPane.showMessageDialog(null, (i+1)+". pica reìistrçta!", "Informâcija", JOptionPane.INFORMATION_MESSAGE);
 				}
 				break;
 				
 			case "Apskatît pasûtîjumus":
-				 //= (String)JOptionPane.showInputDialog(null, "Izvçlies izmçru", "Izvçle", JOptionPane.QUESTION_MESSAGE, null, izmeruIzvele, izmeruIzvele[0]);
+				if(klientuMasivs.length<1){
+					JOptionPane.showMessageDialog(null, "Nav reìistrçtu klientu!", "Íïûda!", JOptionPane.ERROR_MESSAGE);
+				}else{
+					for(int i=0; i<klientuMasivs.length; i++){
+						JOptionPane.showMessageDialog(null, "Informâcija par "+(i+1)+". klientu:"
+								+ "\nVârds: "+klientuMasivs[i].getVards()
+								+ "\nTâlrunis: "+klientuMasivs[i].getTalrunis()
+								+ "\nAdrese: "+klientuMasivs[i].getAdrese());
+						
+			
+								JOptionPane.showMessageDialog(null, "Informâcija par "+(i+1)+". klienta picu:"
+										+ "\nIzmçrs: "+picuMasivs[i].getIzmers()
+										+"\nPiedevas: "+picuMasivs[i].getPiedevas()
+										+ "\nMçrces: "+picuMasivs[i].getMerces());
+					}
+				}
+				
 				
 				
 				break;
