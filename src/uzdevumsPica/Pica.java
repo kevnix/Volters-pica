@@ -17,12 +17,20 @@ public class Pica {
 	public String getIzmers(){
 		return izmers;
 	}
-	public String[] getPiedevas(){
-		return piedevas;
+	public String getPiedevas(){
+		StringBuilder sb = new StringBuilder();
+		for(String str : piedevas)
+			sb.append(str).append(", ");
+		return sb.substring(0, sb.length()-1);
 	}
-	public String[] getMerces(){
-		return merces;
+	
+	public String getMerces(){
+		StringBuilder sb = new StringBuilder();
+		for(String str : merces)
+			sb.append(str).append(", ");
+		return sb.substring(0, sb.length()-1);
 	}
+	
 	public double getCena(){
 		return cena;
 	}

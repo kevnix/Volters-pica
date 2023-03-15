@@ -29,17 +29,17 @@ public class Picerija {
 				
 				klientuMasivs = new Klients[masivaL];
 				for(int i=0; i<klientuMasivs.length; i++){
-					adrese = JOptionPane.showInputDialog("Kâda ir "+(i+1)+". klienta adrese?");
-					talrunis = JOptionPane.showInputDialog("Kâds ir "+(i+1)+". klienta tâlruòa nr?");
 					vards = JOptionPane.showInputDialog("Kâ sauc "+(i+1)+". klientu?");
-						
+					talrunis = JOptionPane.showInputDialog("Kâds ir "+(i+1)+". klienta tâlruòa nr?");
+					adrese = JOptionPane.showInputDialog("Kâda ir "+(i+1)+". klienta adrese?");
+					
+					
 					klientuMasivs[i] = new Klients(vards, adrese, talrunis);
 				}
 				
 				JOptionPane.showMessageDialog(null, "Klienti reìistrçti! Tagad pierakstam viòu pasûtîjumus!", "Informâcija", JOptionPane.INFORMATION_MESSAGE);
 				
 				picuMasivs = new Pica[masivaL];
-				Double cena = null;
 				for(int i=0; i<picuMasivs.length; i++){
 					izmers = (String)JOptionPane.showInputDialog(null, "Izvçlies izmçru", (i+1)+". pica", JOptionPane.QUESTION_MESSAGE, null, izmeruIzvele, izmeruIzvele[0]);
 					
