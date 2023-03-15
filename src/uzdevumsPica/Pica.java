@@ -6,11 +6,15 @@ public class Pica {
 	String[] merces;
 	double cena;
 	int piedevuSk, mercuSk;
+	boolean piegade;
 	
-	public Pica(String izmers, int piedevuSk, String[] piedevas, int mercuSk, String[] merces){
+	public Pica(String izmers, int piedevuSk, String[] piedevas, int mercuSk, String[] merces, boolean piegade){
 		this.izmers=izmers;
 		this.piedevas=piedevas;
 		this.merces=merces;
+		this.piedevuSk=piedevuSk;
+		this.mercuSk=mercuSk;
+		this.piegade=piegade;
 		
 	}
 	
