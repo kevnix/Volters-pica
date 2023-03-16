@@ -60,7 +60,8 @@ public class Pica {
 		cena += piedevuSk*1.5;
 		//cenai pieveno mercu cenu
 		cena += mercuSk*0.9;
-		
+		//noapaïo cenu
+		cena = (double) Math.round(cena*100)/100;
 		return cena;
 	}
 	
