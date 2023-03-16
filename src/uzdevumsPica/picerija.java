@@ -105,7 +105,8 @@ public class Picerija {
 								+ "\nAdrese: "+klientuMasivs[i].getAdrese()
 								+ "\nIzmçrs: "+picuMasivs[i].getIzmers()
 								+ "\nPiedevas: "+picuMasivs[i].getPiedevas()
-								+ "\nMçrces: "+picuMasivs[i].getMerces());
+								+ "\nMçrces: "+picuMasivs[i].getMerces()
+								+ "\nCena: "+picuMasivs[i].aprekinatCenu());
 						
 										
 					}
