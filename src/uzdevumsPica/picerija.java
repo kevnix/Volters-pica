@@ -1,4 +1,6 @@
 package uzdevumsPica;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -7,6 +9,38 @@ import javax.swing.JOptionPane;
 
 
 public class Picerija {
+	
+	static void ierakstit(HashMap<Klients, ArrayList<Pica>> hashmap){
+		try{
+			FileWriter fw = new FileWriter("pasutijumi.txt", true);
+			PrintWriter pw = new PrintWriter(fw);
+			
+			for (Klients i : hashmap.keySet()) {
+				String output="";
+				 output+= 	"\nVârds: "+i.getVards()
+							+ "\nTâlrunis: "+i.getTalrunis()
+							+ "\nAdrese: "+i.getAdrese()
+							+ "\n**************************";
+				 ArrayList<Pica> picas = hashmap.get(i);
+				 
+				 for(int j=0; j<picas.size(); j++) {
+					 output+= 	"\n"+(j+1)+". pica"
+							 	+ "\nIzmçrs: "+picas.get(j).getIzmers()
+							 	+ "\nPiedevas: "+picas.get(j).getPiedevas()
+							 	+ "\nMçrces: "+picas.get(j).getMerces()
+							 	+ "\nCena: "+picas.get(j).aprekinatCenu()+" EUR"
+							 	+ "\n----------------------------------------";
+				 }
+				 pw.print(output);
+				 output="";
+				}
+			pw.println("\n______________");
+			pw.close();
+			JOptionPane.showMessageDialog(null, "Masîvs veiksmîgi ierakstîts failâ!", "Informâcija", JOptionPane.INFORMATION_MESSAGE);
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, "Problçma ierakstot masîvu failâ!", "Kïûda", JOptionPane.ERROR_MESSAGE);
+		}
+	}
 
 	public static void main(String[] args) {
 		String[] darbibas = {"Pievienot pasûtîjumu", "Apskatît pasûtîjumus", "Noòemt pasûtîjumu",  "Apturçt programmu"};
