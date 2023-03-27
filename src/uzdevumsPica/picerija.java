@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 public class Picerija {
 
 	public static void main(String[] args) {
-		String[] darbibas = {"Pievienot pasûtîjumu", "Apskatît pasûtîjumus", "Apturçt programmu"};
+		String[] darbibas = {"Pievienot pasûtîjumu", "Apskatît pasûtîjumus", "Noòemt pasûtîjumu",  "Apturçt programmu"};
 		String izvele;
 		HashMap<Klients, ArrayList<Pica>> picuHM = new HashMap<Klients, ArrayList<Pica>>();
 		int picuSk;
@@ -89,7 +89,7 @@ public class Picerija {
 					
 					
 					
-					//pievieno izveidoto picu arraylistam
+					//pievieno izveidoto picu hashmapam
 					picuHM.get(klients).add(new Pica(izmers, piedevuSk, piedevas, mercuSk, merces, piegade ));
 					JOptionPane.showMessageDialog(null, "Pica reìistrçta!", "Informâcija", JOptionPane.INFORMATION_MESSAGE);
 				}
@@ -124,6 +124,44 @@ public class Picerija {
 					
 				}
 			
+				break;
+				
+			case "Noòemt pasûtîjumu":
+				String pagvards;
+				boolean nonemts=false;
+				if(picuHM.isEmpty()){
+					JOptionPane.showMessageDialog(null, "Nav reìistrçtu klientu!", "Íïûda!", JOptionPane.ERROR_MESSAGE);
+				}else{
+					//parada klientu sarakstu
+					String output="";
+					for (Klients i : picuHM.keySet()) {
+						 output+= "\n"+i.getVards();
+						 
+						}
+					JOptionPane.showMessageDialog(null, output, "Klientu saraksts ", JOptionPane.INFORMATION_MESSAGE);
+					
+					//ievadi vardu
+					pagvards = JOptionPane.showInputDialog("Ievadi klienta vârdu");
+					//nonemsana
+					for (Klients i : picuHM.keySet()) {
+						if(pagvards.equals(i.getVards())){
+							picuHM.remove(i);
+							nonemts=true;
+						}else{
+							nonemts=false;
+							
+						}
+						
+					}
+					//parbaud vai ir nonemts
+					if(nonemts=false){
+						JOptionPane.showMessageDialog(null, "Klients ar ðâdu vârdu nav reìistrçts!", "Kïûda", JOptionPane.ERROR_MESSAGE);
+					}else{
+						JOptionPane.showMessageDialog(null, "Klients noòemts!", "Informâcija", JOptionPane.INFORMATION_MESSAGE);
+					}
+					
+				}
+				
 				break;
 				
 			case "Apturçt programmu":
