@@ -1,10 +1,10 @@
-# Picçrija :pizza:
-## Pasûtîjuma datu pierakstîğana
+# PicÄ“rija :pizza:
+## PasÅ«tÄ«juma datu pierakstÃ®Å¡ana
 ![Image of a pizza delivery guy](https://thumbs.dreamstime.com/b/teenage-pizza-delivery-boy-holding-pizza-box-making-call-teenage-pizza-delivery-boy-holding-pizza-box-making-call-106580925.jpg)
 
 - [ ] Gatavo picu saraksts
-- [ ] Atpakaï poga
-- [ ] Noòemt pasûtîjumu
-- [ ] Pasûtîjumus glabât failos
+- [ ] AtpakaÄ¼ poga
+- [ ] NoÅ†emt pasÅ«tÄ«jumu
+- [ ] PasÅ«tÄ«jumus glabÄt failos
 - [ ] Java Swing
-- [ ] Attçli
+- [ ] AttÄ“li
