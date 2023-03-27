@@ -1,14 +1,23 @@
 package uzdevumsPica;
+import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
 
 
 
 public class Picerija {
+	//static File directory = "S:"+File.separator+"KV_Eclipse"+File.separator+"Volters_pica";
+	//static String atrasanasVieta = directory.getAbsolutePath();
 	
 	static void ierakstit(HashMap<Klients, ArrayList<Pica>> hashmap){
 		try{
@@ -20,7 +29,7 @@ public class Picerija {
 				 output+= 	"\nVârds: "+i.getVards()
 							+ "\nTâlrunis: "+i.getTalrunis()
 							+ "\nAdrese: "+i.getAdrese()
-							+ "\n**************************";
+							+ "\n********************";
 				 ArrayList<Pica> picas = hashmap.get(i);
 				 
 				 for(int j=0; j<picas.size(); j++) {
@@ -29,17 +38,37 @@ public class Picerija {
 							 	+ "\nPiedevas: "+picas.get(j).getPiedevas()
 							 	+ "\nMçrces: "+picas.get(j).getMerces()
 							 	+ "\nCena: "+picas.get(j).aprekinatCenu()+" EUR"
-							 	+ "\n----------------------------------------";
+							 	+ "\n---------------------";
 				 }
 				 pw.print(output);
 				 output="";
 				}
-			pw.println("\n______________");
+			pw.println("\n___________________________________");
 			pw.close();
-			JOptionPane.showMessageDialog(null, "Masîvs veiksmîgi ierakstîts failâ!", "Informâcija", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Pasûtîjums veiksmîgi ierakstîts failâ!", "Informâcija", JOptionPane.INFORMATION_MESSAGE);
 		}catch(Exception e){
-			JOptionPane.showMessageDialog(null, "Problçma ierakstot masîvu failâ!", "Kïûda", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Problçma ierakstot pasûtîjumu failâ!", "Kïûda", JOptionPane.ERROR_MESSAGE);
 		}
+	}
+	
+	static void apskatit(){
+		String teksts, str="";
+		
+		try{
+			FileReader fr = new FileReader("pasutijumi.txt");
+			BufferedReader br = new BufferedReader(fr);
+			while((teksts = br.readLine())!=null){
+				str+=teksts+"\n";
+			}
+			JScrollPane scroll=new JScrollPane(new JTextArea(str));
+			scroll.setPreferredSize( new Dimension( 300, 500 ) );
+			br.close();
+			JOptionPane.showMessageDialog(null, scroll, "Pasûtîjumi", JOptionPane.PLAIN_MESSAGE );
+			
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, "Kïûda nolasot failu", "Brîdinâjums", JOptionPane.ERROR_MESSAGE);
+		}
+		
 	}
 
 	public static void main(String[] args) {
@@ -126,37 +155,14 @@ public class Picerija {
 					//pievieno izveidoto picu hashmapam
 					picuHM.get(klients).add(new Pica(izmers, piedevuSk, piedevas, mercuSk, merces, piegade ));
 					JOptionPane.showMessageDialog(null, "Pica reìistrçta!", "Informâcija", JOptionPane.INFORMATION_MESSAGE);
+					
 				}
+					ierakstit(picuHM);
 					
 				break;
 				
 			case "Apskatît pasûtîjumus":
-				if(picuHM.isEmpty()){
-					JOptionPane.showMessageDialog(null, "Nav reìistrçtu klientu!", "Íïûda!", JOptionPane.ERROR_MESSAGE);
-				}else{
-					//saliek klienta informaciju vienaa stringaa
-					for (Klients i : picuHM.keySet()) {
-						String output="";
-						 output+= 	"\nVârds: "+i.getVards()
-									+ "\nTâlrunis: "+i.getTalrunis()
-									+ "\nAdrese: "+i.getAdrese()
-									+ "\n**************************";
-						 ArrayList<Pica> picas = picuHM.get(i);
-						 
-						 for(int j=0; j<picas.size(); j++) {
-							 output+= 	"\n"+(j+1)+". pica"
-									 	+ "\nIzmçrs: "+picas.get(j).getIzmers()
-									 	+ "\nPiedevas: "+picas.get(j).getPiedevas()
-									 	+ "\nMçrces: "+picas.get(j).getMerces()
-									 	+ "\nCena: "+picas.get(j).aprekinatCenu()+" EUR"
-									 	+ "\n----------------------------------------";
-						 }
-						 
-						 JOptionPane.showMessageDialog(null, output, "Informâcija par "+i.getVards(), JOptionPane.INFORMATION_MESSAGE);
-						 output="";
-						}
-					
-				}
+				apskatit();
 			
 				break;
 				

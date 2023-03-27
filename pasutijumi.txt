@@ -1,0 +1,54 @@
+
+Vârds: kevins
+Tâlrunis: +371 20409985
+Adrese: uz vietas
+**************************
+1. pica
+Izmçrs: XL
+Piedevas: Siers;
+Mçrces: Tomâtu;
+Cena: 22.39 EUR
+----------------------------------------
+______________
+
+Vârds: mango
+Tâlrunis: +371 12345678
+Adrese: uz vietas
+**************************
+1. pica
+Izmçrs: S
+Piedevas: Siers;
+Mçrces: Tomâtu; Majonçze;
+Cena: 8.29 EUR
+----------------------------------------
+______________
+
+Vârds: reins
+Tâlrunis: +371 87654321
+Adrese: ventspils iela 10
+**********
+1. pica
+Izmçrs: S
+Piedevas: Siers; Bekons; Sarkanie sîpoli;
+Mçrces: Tomâtu;
+Cena: 13.39 EUR
+----------
+___________________________________
+
+Vârds: reins
+Tâlrunis: +371 87654321
+Adrese: ventspils iela 10
+**********
+1. pica
+Izmçrs: S
+Piedevas: Siers; Bekons; Sarkanie sîpoli;
+Mçrces: Tomâtu;
+Cena: 13.39 EUR
+----------
+2. pica
+Izmçrs: XL
+Piedevas: Siers;
+Mçrces: Tomâtu;
+Cena: 25.39 EUR
+----------
+___________________________________
