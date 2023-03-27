@@ -4,7 +4,7 @@
 
 - [ ] Gatavo picu saraksts
 - [ ] Atpakaļ poga
-- [ ] Noņemt pasūtījumu
+- [x] Noņemt pasūtījumu
 - [ ] Pasūtījumus glabāt failos
 - [ ] Java Swing
 - [ ] Attēli
